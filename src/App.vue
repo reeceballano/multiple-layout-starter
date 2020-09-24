@@ -1,33 +1,42 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+    <section class="nav-wrapper">
+        <app-nav></app-nav>
+    </section>
 
-  <component :is="layout">
-    <router-view/>
-  </component>
+    <component :is="layout">
+        <router-view/>
+    </component>
+
+    <app-footer></app-footer>
+    
 </template>
 
 <script>
-import { computed, onMounted } from 'vue';
+import { computed, defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 
-export default {
-  setup() {
-    const layout = computed( () => {
-      return (router.meta.layout || 'default-layout');
-    });
+export default defineComponent({
+    components: {
+        'app-nav': Nav,
+        'app-footer': Footer,
+    },
 
-    const router = useRoute();
+    setup() {
+        const route = useRoute();
 
-    onMounted( () => {
-      console.log(router.meta);
-    })
+        const layout = computed( () => {
+            return (route.meta.layout || 'default-layout');
+        });
 
-    return {
-      layout,
-    }
+        return {
+            layout
+        }
   }  
-}
+})
 </script>
+
+<style lang="scss">
+    @import './assets/styles.scss';
+</style>

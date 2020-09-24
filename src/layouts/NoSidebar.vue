@@ -1,8 +1,6 @@
 <template>
-    <div>
+    <div class="fullwidth">
         <slot />
-
-        no sidebar
     </div>
 </template>
 

@@ -7,9 +7,8 @@ import NoSidebar from './layouts/NoSidebar.vue'
 
 const app = createApp(App);
 
-app
-    .component('default-layout', Default)
-    .component('no-sidebar-layout', NoSidebar)
-    .use(store)
-    .use(router)
-    .mount('#app');
+app.component('default-layout', Default)
+app.component('no-sidebar-layout', NoSidebar)
+app.use(store)
+app.use(router)
+app.mount('#app');

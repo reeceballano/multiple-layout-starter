@@ -1,21 +1,19 @@
 <template>
-    <div class="home">
+    <div class="contact">
         <div class="container">
-            <h2>This is homepage</h2>
+            <h2>Contact Page</h2>
         </div>
     </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+export default {
 
-export default defineComponent({
-    name: 'Home',
-})
+}
 </script>
 
 <style lang="scss" scoped>
-    .home {
+    .contact {
         padding: 75px 0;
     }
 </style>
